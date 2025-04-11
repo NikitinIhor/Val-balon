@@ -1,0 +1,27 @@
+.container {
+  padding-top: calc(50 / 16 * 1rem);
+}
+.container img {
+  margin: 0 auto;
+}
+h1 {
+  font-size: calc(24 / 16 * 1rem);
+  margin-bottom: calc(24 / 16 * 1rem);
+}
+.link {
+  color: white;
+  background-color: red;
+  padding: 10px;
+  border-radius: calc(10 / 16 * 1rem);
+  margin-bottom: calc(12 / 16 * 1rem);
+  position: relative;
+  z-index: 10;
+}
+@media (min-width: 768px) {
+  .container img {
+    width: 50%;
+  }
+  h1 {
+    font-size: calc(32 / 16 * 1rem);
+  }
+}
