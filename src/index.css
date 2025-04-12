@@ -5,8 +5,10 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: normal;
 
+  width: 100vw;
+  height: 100vh;
   line-height: 1;
-  background-color: white;
+  background: linear-gradient(to top, #efa6bf, #e0f7fa);
   color: black;
   /* 14px */
   font-size: 0.875rem;
