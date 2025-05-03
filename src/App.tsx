@@ -14,7 +14,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 6000);
+    }, 1000);
     return () => clearTimeout(timeout);
   }, []);
 

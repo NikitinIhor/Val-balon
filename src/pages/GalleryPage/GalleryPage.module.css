@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  align-items: center;
+  gap: calc(10 / 16 * 1rem);
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: calc(15 / 16 * 1rem);
+}
+.item img {
+  width: calc(200 / 16 * 1rem);
+  height: calc(300 / 16 * 1rem);
+  object-fit: cover;
+  border: 1px solid white;
+  padding: calc(10 / 16 * 1rem);
+  background-color: white;
+  border-radius: 15px;
+}
