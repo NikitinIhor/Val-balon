@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header/Header";
 import MainLoader from "./components/MainLoader/MainLoader";
@@ -24,6 +25,7 @@ const App: React.FC = () => {
 
   return (
     <Suspense fallback="null">
+      <Toaster />
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
