@@ -2,18 +2,18 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllBalloons } from "../../redux/balloons/ops";
 import {
-  selectAllBalloons,
-  selectError,
-  selectLoading,
+  SelectAllBalloons,
+  SelectError,
+  SelectLoading,
 } from "../../redux/balloons/slice";
 
 import { AppDispatch } from "../../redux/store";
 import css from "./GalleryPage.module.css";
 
 const GalleryPage: React.FC = () => {
-  const allBalloons = useSelector(selectAllBalloons);
-  const loading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  const allBalloons = useSelector(SelectAllBalloons);
+  const loading = useSelector(SelectLoading);
+  const error = useSelector(SelectError);
 
   const dispatch = useDispatch<AppDispatch>();
 

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { store } from "../store";
-import { getAllBalloons } from "./ops";
+import { createBalloon, getAllBalloons } from "./ops";
 
 export type RootState = ReturnType<typeof store.getState>;
 
@@ -41,12 +41,31 @@ const balloonsSlice = createSlice({
       .addCase(getAllBalloons.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(createBalloon.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(
+        createBalloon.fulfilled,
+        (state, action: PayloadAction<Balloons>) => {
+          state.loading = false;
+          state.error = false;
+          state.balloons.push(action.payload);
+        }
+      )
+      .addCase(createBalloon.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
       });
   },
 });
 
-export const selectAllBalloons = (state: RootState) => state.balloons.balloons;
-export const selectLoading = (state: RootState) => state.balloons.loading;
-export const selectError = (state: RootState) => state.balloons.error;
+export const SelectAllBalloons = (state: RootState) => state.balloons.balloons;
+export const SelectCreateBalloon = (state: RootState) =>
+  state.balloons.balloons;
+
+export const SelectLoading = (state: RootState) => state.balloons.loading;
+export const SelectError = (state: RootState) => state.balloons.error;
 
 export default balloonsSlice.reducer;

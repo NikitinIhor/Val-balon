@@ -16,3 +16,17 @@ export const getAllBalloons = createAsyncThunk(
     }
   }
 );
+
+export const createBalloon = createAsyncThunk(
+  "balloons/create",
+  async (newBalloon, thunkAPI) => {
+    try {
+      const res = await axios.post("/balloons", newBalloon);
+
+      return res.data;
+    } catch (error) {
+      const err = error as AxiosError;
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);
