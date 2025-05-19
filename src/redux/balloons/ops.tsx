@@ -19,10 +19,13 @@ export const getAllBalloons = createAsyncThunk(
 
 export const createBalloon = createAsyncThunk(
   "balloons/create",
-  async (newBalloon, thunkAPI) => {
+  async (newBalloon: FormData, thunkAPI) => {
     try {
-      const res = await axios.post("/balloons", newBalloon);
-
+      const res = await axios.post("/balloons", newBalloon, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
       return res.data;
     } catch (error) {
       const err = error as AxiosError;

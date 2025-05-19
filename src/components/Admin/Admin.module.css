@@ -29,8 +29,7 @@
   background-color: black;
   color: white;
 }
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: calc(15 / 16 * 1rem);
+.gallery {
+  padding: calc(10 / 16 * 1rem);
+  border: 1px solid black;
 }

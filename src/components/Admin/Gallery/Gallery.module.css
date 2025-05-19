@@ -1,0 +1,26 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: calc(10 / 16 * 1rem);
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(10 / 16 * 1rem);
+  padding: calc(6 / 16 * 1rem);
+  border: 1px solid black;
+}
+.item img {
+  width: calc(30 / 16 * 1rem);
+  height: calc(30 / 16 * 1rem);
+}
+.btns {
+  display: flex;
+  gap: calc(15 / 16 * 1rem);
+}
+.btns button:first-child,
+.btns button:last-child {
+  padding: calc(10 / 16 * 1rem);
+  background-color: rgb(209, 207, 207);
+}
