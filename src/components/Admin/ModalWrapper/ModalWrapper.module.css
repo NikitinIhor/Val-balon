@@ -1,0 +1,8 @@
+.wrapper {
+  padding: calc(15 / 16 * 1rem);
+  background-color: gray;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

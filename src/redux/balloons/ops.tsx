@@ -33,3 +33,25 @@ export const createBalloon = createAsyncThunk(
     }
   }
 );
+
+export const updateBalloon = createAsyncThunk(
+  "balloons/update",
+  async (updatedBalloon: { id: string; data: FormData }, thunkAPI) => {
+    try {
+      const res = await axios.patch(
+        `/balloons/${updatedBalloon.id}`,
+        updatedBalloon.data,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      return res.data;
+    } catch (error) {
+      const err = error as AxiosError;
+      return thunkAPI.rejectWithValue(err.message);
+    }
+  }
+);

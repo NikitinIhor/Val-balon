@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { store } from "../store";
-import { createBalloon, getAllBalloons } from "./ops";
+import { createBalloon, getAllBalloons, updateBalloon } from "./ops";
 
 export type RootState = ReturnType<typeof store.getState>;
 
 interface Balloons {
+  id: string;
   balloon: string;
   description: string;
 }
@@ -57,12 +58,35 @@ const balloonsSlice = createSlice({
       .addCase(createBalloon.rejected, (state) => {
         state.loading = false;
         state.error = true;
+      })
+      .addCase(updateBalloon.pending, (state) => {
+        state.loading = true;
+        state.error = false;
+      })
+      .addCase(updateBalloon.fulfilled, (state, action: PayloadAction<any>) => {
+        state.loading = false;
+        state.error = false;
+
+        const updatedBalloon = {
+          ...action.payload,
+          id: action.payload._id,
+        };
+
+        state.balloons = state.balloons.map((balloon) =>
+          balloon.id === updatedBalloon.id ? updatedBalloon : balloon
+        );
+      })
+      .addCase(updateBalloon.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
       });
   },
 });
 
 export const SelectAllBalloons = (state: RootState) => state.balloons.balloons;
 export const SelectCreateBalloon = (state: RootState) =>
+  state.balloons.balloons;
+export const SelectUpdateBalloon = (state: RootState) =>
   state.balloons.balloons;
 
 export const SelectLoading = (state: RootState) => state.balloons.loading;

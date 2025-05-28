@@ -1,6 +1,14 @@
 import css from "./Delete.module.css";
 
-interface DeleteProps {}
+interface Balloon {
+  balloon: string;
+  description: string;
+}
+
+interface DeleteProps {
+  onClose: () => void;
+  item: Balloon[];
+}
 
 const Delete: React.FC<DeleteProps> = () => {
   return (

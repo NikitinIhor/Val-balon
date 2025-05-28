@@ -21,6 +21,7 @@
 }
 .btns button:first-child,
 .btns button:last-child {
-  padding: calc(10 / 16 * 1rem);
+  padding: calc(5 / 16 * 1rem) calc(10 / 16 * 1rem);
+  height: calc(16 / 16 * 1rem);
   background-color: rgb(209, 207, 207);
 }

@@ -43,10 +43,10 @@ const Gallery: React.FC<GalleryProps> = () => {
               <p className={css.description}>{item.description}</p>
               <div className={css.btns}>
                 <button onClick={() => handleOpenModal("update", item)}>
-                  <Update />
+                  update
                 </button>
                 <button onClick={() => handleOpenModal("delete", item)}>
-                  <Delete />
+                  delet
                 </button>
               </div>
             </li>
