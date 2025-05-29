@@ -6,7 +6,7 @@ import { AppDispatch } from "../../../redux/store";
 import css from "./Update.module.css";
 
 interface Balloon {
-  id: string;
+  _id: string;
   balloon: string;
   description: string;
 }
@@ -39,10 +39,8 @@ const Update: React.FC<UpdateProps> = ({ onClose, item }) => {
     }
     formData.append("description", values.description);
 
-    console.log("Updating balloon with id:", item.id);
-
     const result = await dispatch(
-      updateBalloon({ id: item.id, data: formData })
+      updateBalloon({ _id: item._id, data: formData })
     );
 
     if (updateBalloon.fulfilled.match(result)) {

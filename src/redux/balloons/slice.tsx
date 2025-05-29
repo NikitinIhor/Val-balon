@@ -5,7 +5,7 @@ import { createBalloon, getAllBalloons, updateBalloon } from "./ops";
 export type RootState = ReturnType<typeof store.getState>;
 
 interface Balloons {
-  id: string;
+  _id: string;
   balloon: string;
   description: string;
 }
@@ -69,11 +69,11 @@ const balloonsSlice = createSlice({
 
         const updatedBalloon = {
           ...action.payload,
-          id: action.payload._id,
+          _id: action.payload._id,
         };
 
         state.balloons = state.balloons.map((balloon) =>
-          balloon.id === updatedBalloon.id ? updatedBalloon : balloon
+          balloon._id === updatedBalloon._id ? updatedBalloon : balloon
         );
       })
       .addCase(updateBalloon.rejected, (state) => {

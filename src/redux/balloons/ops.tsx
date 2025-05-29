@@ -36,10 +36,10 @@ export const createBalloon = createAsyncThunk(
 
 export const updateBalloon = createAsyncThunk(
   "balloons/update",
-  async (updatedBalloon: { id: string; data: FormData }, thunkAPI) => {
+  async (updatedBalloon: { _id: string; data: FormData }, thunkAPI) => {
     try {
-      const res = await axios.patch(
-        `/balloons/${updatedBalloon.id}`,
+      const res = await axios.post(
+        `/balloons/${updatedBalloon._id}`,
         updatedBalloon.data,
         {
           headers: {
